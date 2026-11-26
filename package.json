@@ -1,0 +1,13 @@
+{
+  "name": "emberglass-caldera-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shape three live glass commissions inside an inhabited 3D volcanic studio.",
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "node --check src/data.js && node --check src/sim.js && node --check src/scene.js && node --check src/app.js && node build.cjs && node --test tests/*.test.cjs",
+    "preview": "node tools/preview.mjs"
+  },
+  "engines": {"node": ">=18"},
+  "license": "MIT"
+}

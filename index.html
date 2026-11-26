@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d0c10">
+  <title>EMBERGLASS — The Caldera Studio</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <main id="app">
+    <div id="scene" aria-label="Interactive 3D volcanic glass studio"></div>
+    <header class="mast">
+      <div><span class="kicker">Night edition · Caldera 07</span><h1>EMBER<span>GLASS</span></h1></div>
+      <div class="commission"><span id="orderNo">Commission 01 / 03</span><strong id="orderName">Dawn Vessel</strong><small id="client">The East Pavilion</small></div>
+    </header>
+    <aside class="objective" id="objective"><span>Brief</span><p id="brief">A low vessel that holds the first orange light.</p><button id="detailsBtn" aria-expanded="false">Open profile</button></aside>
+    <aside class="profile" id="profile" aria-hidden="true">
+      <button class="close" id="closeProfile" aria-label="Close profile">×</button><span class="kicker">Target profile</span>
+      <svg viewBox="0 0 170 165" aria-label="Target vessel silhouette"><path id="targetPath" d=""/></svg>
+      <h2 id="profileName">Dawn Vessel</h2><p id="profileNote"></p>
+      <div class="profile-grid"><span>Body<b id="targetBody">72%</b></span><span>Neck<b id="targetNeck">44%</b></span><span>Rim<b id="targetFlare">32%</b></span></div>
+    </aside>
+    <button class="camera-btn" id="cameraBtn" aria-pressed="false" title="Toggle cinematic camera">Camera: orbit</button>
+    <section class="hud" aria-label="Glassmaking controls">
+      <div class="meters">
+        <div class="thermo"><div class="label"><span>Temperature</span><b id="tempText">780°C</b></div><div class="bar heat"><i id="tempBar"></i><em id="sweetBand"></em></div></div>
+        <div><div class="label"><span>Profile match</span><b id="matchText">0%</b></div><div class="bar"><i id="matchBar"></i></div></div>
+        <div class="mini-stats"><span>Symmetry<b id="symText">100%</b></span><span>Stress<b id="stressText">0%</b></span><span>Score<b id="scoreText">0</b></span></div>
+      </div>
+      <div class="controls">
+        <label class="slider"><span>Heat <kbd>Q/E</kbd></span><input id="heat" type="range" min="0" max="100" value="0" aria-label="Furnace heat"></label>
+        <label class="slider"><span>Rotation <kbd>A/D</kbd></span><input id="spin" type="range" min="0" max="100" value="42" aria-label="Blowpipe rotation speed"></label>
+        <button class="control blow" id="blow"><span>Hold</span><strong>Blow</strong><kbd>B</kbd></button>
+        <div class="tools" role="toolbar" aria-label="Glass shaping tools">
+          <button class="control tool" data-tool="paddle"><kbd>1</kbd><span>Paddle</span></button>
+          <button class="control tool" data-tool="jacks"><kbd>2</kbd><span>Jacks</span></button>
+          <button class="control tool" data-tool="shears"><kbd>3</kbd><span>Shears</span></button>
+        </div>
+        <button class="control reheat" id="reheat"><span>Furnace</span><strong>Reheat</strong><kbd>R</kbd></button>
+        <button class="control finish" id="finish"><span>When ready</span><strong>Anneal</strong><kbd>↵</kbd></button>
+      </div>
+    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="hint" id="hint">Drag the world to orbit · wheel to zoom · controls also work by touch</div>
+  </main>
+
+  <div class="overlay open" id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+    <div class="intro-card">
+      <span class="kicker" id="overlayKicker">The Caldera Studio</span><h2 id="overlayTitle">Glass remembers<br>every second of heat.</h2>
+      <p id="overlayText">Shape three commissions before the volcano sleeps. Balance heat, rotation and breath; use the tools only while the glass is soft.</p>
+      <div class="recipe"><span><b>01</b> Keep it hot</span><span><b>02</b> Keep it turning</span><span><b>03</b> Shape the profile</span></div>
+      <button id="overlayAction">Gather the first piece</button>
+      <small>Created &amp; directed by Bárbara Cohen · AI-assisted development</small>
+    </div>
+  </div>
+  <noscript>This project needs JavaScript to run.</noscript>
+  <script src="vendor/three-0.160.0.min.js"></script>
+  <script src="src/data.js"></script>
+  <script src="src/sim.js"></script>
+  <script src="src/scene.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>
+
